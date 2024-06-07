@@ -1,0 +1,1 @@
+./litex_sim.py --cpu-type cva5 --with-sdram --sdram-init boot.json --trace --trace-start 995034000000

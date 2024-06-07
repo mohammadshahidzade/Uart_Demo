@@ -1,0 +1,33 @@
+Assume your binary file is named firmware.bin. Here’s how you would disassemble it:
+
+Convert the binary file to an ELF file:
+
+sh
+Copy code
+riscv64-unknown-elf-objcopy -I binary -O elf32-littleriscv -B riscv firmware.bin firmware.elf
+Disassemble the ELF file:
+
+sh
+Copy code
+riscv64-unknown-elf-objdump -D firmware.elf
+The output will show the disassembled instructions. For example:
+
+yaml
+Copy code
+firmware.elf:     file format elf32-littleriscv
+
+Disassembly of section .data:
+
+00000000 <.data>:
+   0:   00000137            lui     sp,0x0
+   4:   00400093            li      ra,4
+   8:   00000013            nop
+   c:   00000013            nop
+  10:   00000013            nop
+Summary
+By following these steps, you can convert a binary file to assembly language for a VexRiscv processor. This process involves converting the binary file to an ELF file and then using a disassembler to read the ELF file and produce assembly instructions.
+
+
+
+
+
